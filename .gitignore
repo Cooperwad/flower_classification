@@ -1,0 +1,7 @@
+flower_model_2.h5
+history_2.pkl
+flower_model.h5
+history.pkl
+logs/
+__pycache__/
+*.pyc
