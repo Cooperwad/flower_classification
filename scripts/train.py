@@ -6,20 +6,15 @@ import tensorflow as tf
 import pickle
 import os
 import data_prep
+from constants import MODEL_PATH, HISTORY_PATH
 import model
 import matplotlib.pyplot as plt
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
 from tensorflow.keras.models import load_model
 
 
 model = model.model
 train = data_prep.train
 val = data_prep.val
-
-MODEL_PATH = 'flower_model_2.h5'
-HISTORY_PATH = 'history_2.pkl'
-
 
 logdir='logs'
 callback = tf.keras.callbacks.TensorBoard(log_dir=logdir)
@@ -54,9 +49,9 @@ if history:
         history_dict = history.history
 
     fig = plt.figure()
-    plt.plot(history_dict['loss'], color='blue', label='Training Loss')
-    plt.plot(history_dict['val_loss'], color='red', label='Validation Loss')
-    fig.suptitle('Loss', fontsize=20)
+    plt.plot(history_dict['accuracy'], color='blue', label='Accuracy')
+    plt.plot(history_dict['val_accuracy'], color='red', label='Validation Accuracy')
+    fig.suptitle('Accuracy', fontsize=20)
     plt.legend(loc="upper left")
     plt.show()
 else:
