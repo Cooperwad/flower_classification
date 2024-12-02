@@ -30,7 +30,7 @@ for idx, img in enumerate(batch[0][:4]):
     ax[idx].imshow(img.astype(int))
     label = batch[1][idx]
     ax[idx].title.set_text(class_names[label])
-plt.show()
+#plt.show()
 
 # data preprocessing 
 scaled_data = data.map(lambda x, y: (x/255, y))
